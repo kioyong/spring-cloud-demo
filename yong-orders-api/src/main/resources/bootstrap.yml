@@ -1,0 +1,16 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /orders/api
+
+spring:
+  application:
+    name: yong-orders-api
+  profiles:
+    active: dev,devApi
+
+
+logging:
+  level:
+    com.yong: DEBUG
+    org.springframework.security: DEBUG

@@ -1,0 +1,31 @@
+#config server' port suggest use  8888
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/workspace2/config-repo
+          repos:
+            dev:
+              pattern:
+                - 'application'
+              uri: file://${user.home}/workspace2/config-repo
+            sit:
+              pattern:
+                - 'application'
+              uri: file://${user.home}/workspace2/config-repo
+#测试使用本地文件
+
+logging:
+  level:
+    com.yong: DEBUG
+#    org.springframework: DEBUG
+management:
+  context-path: /
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false

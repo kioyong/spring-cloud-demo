@@ -1,0 +1,6 @@
+# application.yml应该所有的service 都会从config server 获取， 最基本的配置放在这里
+#优先度测试， 此处的mongodb 配置 应该会被 application-dev.yml覆盖
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27018

@@ -1,0 +1,23 @@
+server:
+#  port: 8081
+  port: 8082
+  servlet:
+    context-path:
+spring:
+  application:
+      name: yong-orders
+  data:
+    mongodb:
+      database: location
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com.yong: DEBUG
+
+
+eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
