@@ -4,3 +4,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27018
+management:
+  context-path: /
+  security:
+    enable: false

@@ -24,8 +24,3 @@ logging:
 #    org.springframework: DEBUG
 management:
   context-path: /
-
-eureka:
-  client:
-    fetch-registry: false
-    register-with-eureka: false
