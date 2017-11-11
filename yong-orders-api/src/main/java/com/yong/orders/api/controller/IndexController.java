@@ -1,14 +1,16 @@
 package com.yong.orders.api.controller;
 
 import com.yong.orders.api.client.OrdersClient;
-import com.yong.orders.api.config.UnprotectedUrlsConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
-import java.util.List;
+
+//import com.yong.orders.api.config.UnprotectedUrlsConfiguration;
+
+//import com.yong.resource.config.UnprotectedUrlsConfiguration;
 
 /**
  * @author LiangYong
@@ -18,8 +20,9 @@ import java.util.List;
 @AllArgsConstructor
 public class IndexController {
 
-	private final UnprotectedUrlsConfiguration urls;
 	private final OrdersClient client;
+
+//	private final UnprotectedUrlsConfiguration urls;
 
 	@GetMapping("/index")
 	public String index(){
@@ -31,9 +34,9 @@ public class IndexController {
 		return principal;
 	}
 
-	@GetMapping("/urls")
-	public List<String> getProtectedUrls(){
-		return urls.getUrls();
-	}
+//	@GetMapping("/urls")
+//	public List<String> getProtectedUrls(){
+//		return urls.getUrls();
+//	}
 
 }

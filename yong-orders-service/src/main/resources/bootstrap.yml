@@ -17,8 +17,4 @@ logging:
     com.yong: DEBUG
 
 
-eureka:
-  instance:
-    statusPageUrlPath: /info
-    healthCheckUrlPath: /health
 

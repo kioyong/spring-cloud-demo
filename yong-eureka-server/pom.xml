@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yong.registry</groupId>
-    <artifactId>yong-registry</artifactId>
+    <artifactId>yong-eureka-server</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>yong-registry</name>
+    <name>yong-eureka-server</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

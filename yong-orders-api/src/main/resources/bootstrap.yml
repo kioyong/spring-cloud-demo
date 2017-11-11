@@ -8,38 +8,20 @@ spring:
     name: yong-orders-api
   profiles:
     active: dev,devApi
-
+#  cloud:
+#    config:
+#     uri: http://localhost:8888
+#     username:
+#     password:
 
 logging:
   level:
     com.yong: DEBUG
 #    org.springframework.security: DEBUG
 
-#yong:
-#  security:
-#    urls:
-#      - /info
-#      - /health
-#      - /env
-#      - /swagger.*
-#      - /v2/api-docs
-
-#management:
-#  context-path: /
-#  security:
-#    enable: false
-
-eureka:
-  client:
-    fetch-registry: false
-    register-with-eureka: false
-
-#security:
-#  oauth2:
-#    client:
-#      clientId: yong
-#      clientSecret: passw0rd
-#      accessTokenUri: localhost:8081/api/oauth/token
-#      userAuthorizationUri: localhost:8081/api/oauth/authorize
-#    resource:
-#      userInfoUri: http://127.0.0.1:8081/api/user/me
+yong:
+  unprotected:
+#    urls: /v2/api-docs
+    urls:
+      - /swagger.*
+      - /v2/api-docs

@@ -9,6 +9,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/security
+      database: security
 security:
   headers:
     content-type: true

@@ -1,6 +1,8 @@
-package com.yong.orders.api.config;
+package com.yong.resource.config;
 
-import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,28 +15,35 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author LiangYong
- * @createdDate 2017/11/5
- * TODO 校验完成后，如果url没有匹配上，依然返回401，pending fixed
+ * @createdDate 2017/11/11
  */
 
-
 @Configuration
-@EnableResourceServer
 @EnableOAuth2Client
-@AllArgsConstructor
+@EnableResourceServer
+@ConfigurationProperties(prefix = "yong.unprotected")
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
-	private final UnprotectedUrlsConfiguration urls;
+	private List<String> urls = new ArrayList<>();
+
+	public List<String> getUrls() {
+		return urls;
+	}
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		//TODO use config protected-urls instead of hard code
 		http.authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/*.html", "/**/*.css", "/**/*.js", "/**/*.png").permitAll()
-			.regexMatchers(urls.getUrls().stream().toArray(String[]::new)).permitAll()
-			.anyRequest().authenticated().and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.antMatchers(HttpMethod.GET, "/*.html", "/**/*.css", "/**/*.js", "/**/*.png").permitAll()
+//				.antMatchers(urls.stream().toArray(String[]::new)).permitAll()
+				.regexMatchers(urls.stream().toArray(String[]::new)).permitAll()
+				.anyRequest().authenticated().and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//		http.antMatcher("/**").authorizeRequests().anyRequest().permitAll();
 	}
 
 	@Bean
