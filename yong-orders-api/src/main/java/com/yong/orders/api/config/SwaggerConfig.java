@@ -1,10 +1,8 @@
-package com.yong.orders;
+package com.yong.orders.api.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -21,13 +19,14 @@ import java.util.List;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 /**
- * Created by LiangYong on 2017/9/12.
+ * @author LiangYong
+ * @createdDate 2017/11/11
  */
+
 
 @Configuration
 @EnableSwagger2
 @Slf4j
-@Controller
 public class SwaggerConfig {
 
     @Bean
@@ -37,20 +36,20 @@ public class SwaggerConfig {
          * 为所有swagger UI 上面的请求默认添加一个 authorization 参数，方便测试
          * **/
         Parameter param = new ParameterBuilder()
-            .parameterType("header")
-            .name("Authorization")
-            .description("Used for oauth authentication")
-            .modelRef(new ModelRef("string"))
-            .required(false)
-            .build();
+                .parameterType("header")
+                .name("Authorization")
+                .description("Used for oauth authentication")
+                .modelRef(new ModelRef("string"))
+                .required(false)
+                .build();
         List<Parameter> params = new ArrayList<>();
         params.add(param);
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.yong.orders.controller"))
-            .paths(regex(".*"))
-            .build()
-            .globalOperationParameters(params);
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.yong.orders.api.controller"))
+                .paths(regex(".*"))
+                .build()
+                .globalOperationParameters(params);
     }
 
     private ApiInfo apiInfo() {
@@ -59,3 +58,4 @@ public class SwaggerConfig {
                 .version("0.0.1-SNAPSHOT").build();
     }
 }
+

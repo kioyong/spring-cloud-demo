@@ -6,21 +6,29 @@ spring:
     config:
       server:
         git:
-          uri: file://${user.home}/workspace2/config-repo
+          uri: file://${user.home}/spring-cloud-demo/config-repo
+#          basedir: /config-repo
+#          lable: master
           repos:
             dev:
               pattern:
                 - 'application'
-              uri: file://${user.home}/workspace2/config-repo
+              uri: file://${user.home}/spring-cloud-demo/config-repo
+#              basedir: /config-repo
             sit:
               pattern:
                 - 'application'
-              uri: file://${user.home}/workspace2/config-repo
+                - 'sit'
+              uri: file://${user.home}/spring-cloud-demo/config-repo
+#              basedir: /config-repo
 #测试使用本地文件
 
 logging:
   level:
     com.yong: DEBUG
 #    org.springframework: DEBUG
+
 management:
   context-path: /
+  security:
+    enabled: false

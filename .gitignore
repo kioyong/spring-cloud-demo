@@ -50,3 +50,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+config-repo/

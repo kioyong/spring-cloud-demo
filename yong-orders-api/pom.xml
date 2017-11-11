@@ -29,6 +29,7 @@
 		<groupId>com.yong.orders.model</groupId>
 		<artifactId>yong-orders-model</artifactId>
 		<version>1.0.0</version>
+        
 	</dependency>
 
 	<dependency>
