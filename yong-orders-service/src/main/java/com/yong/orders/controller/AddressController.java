@@ -20,7 +20,6 @@ public class AddressController extends BaseController<Address> {
 
     private final AddressService service;
 
-    @Autowired
     public AddressController(AddressService service) {
         super(service);
         this.service = service;
