@@ -13,17 +13,17 @@ import java.util.List;
 public interface BaseClient<T> {
 
 	@PostMapping
-	Result<T> addOne(@RequestBody T instance);
+	Result addOne(@RequestBody T instance);
 
 	@DeleteMapping("/{id}")
-	Result<T> delete(@PathVariable("id") String id);
+	Result delete(@PathVariable("id") String id);
 
 	@GetMapping
-	Result<List<T>> findAll();
+	Result findAll();
 
 	@GetMapping("/{id}")
-	Result<T> getOne(@PathVariable("id") String id);
+	Result getOne(@PathVariable("id") String id);
 
 	@PutMapping
-	Result<T> updateOne(@RequestBody T instance);
+	Result updateOne(@RequestBody T instance);
 }

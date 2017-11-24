@@ -25,3 +25,8 @@ yong:
     urls:
       - /swagger.*
       - /v2/api-docs
+      - /hystrix.*
+
+feign:
+  hystrix:
+    enabled: true

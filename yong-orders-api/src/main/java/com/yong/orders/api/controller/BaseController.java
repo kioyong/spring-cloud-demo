@@ -19,7 +19,7 @@ public class BaseController<T> {
 	private final BaseClient client;
 
 	@PostMapping
-	Result<T> addOne(@RequestBody T instance,
+	Result addOne(@RequestBody T instance,
 					 HttpServletResponse response) {
 
 		return client.addOne(instance);
@@ -27,7 +27,7 @@ public class BaseController<T> {
 
 
 	@DeleteMapping("/{id}")
-	public Result<T> delete(@PathVariable("id") String id,
+	public Result delete(@PathVariable("id") String id,
 							HttpServletResponse response) {
 
 		return client.delete(id);
@@ -35,14 +35,14 @@ public class BaseController<T> {
 
 
 	@GetMapping
-	public Result<List<T>> findtAll(
+	public Result findAll(
 		HttpServletResponse  response) {
 		return client.findAll();
 	}
 
 
 	@GetMapping("/{id}")
-	public Result<T> getOne(@PathVariable("id") String id,
+	public Result getOne(@PathVariable("id") String id,
 							HttpServletResponse  response) {
 
 		return client.getOne(id);
@@ -50,7 +50,7 @@ public class BaseController<T> {
 
 
 	@PutMapping("")
-	Result<T> updateOne(@RequestBody T instance,
+	Result updateOne(@RequestBody T instance,
 						HttpServletResponse response) {
 
 		return client.updateOne(instance);

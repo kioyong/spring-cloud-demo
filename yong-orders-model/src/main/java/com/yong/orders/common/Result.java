@@ -18,24 +18,24 @@ import static com.yong.orders.common.ResultCode.SUCCESS;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Result<T> {
+public class Result {
 
     private ResultCode status = SUCCESS;
     private String message;
-    private T payload;
+    private Object payload;
 
     public static Result success() {
         return new Result();
     }
 
-    public static <O> Result<O> success(O payload) {
+    public static  Result success(Object payload) {
         checkArgument(payload != null, "payload should be not null");
-        return new Result<>(SUCCESS, null, payload);
+        return new Result(SUCCESS, null, payload);
     }
 
-    public static <O> Result<O> fail(ResultCode code, String message) {
+    public static Result fail(ResultCode code, String message) {
         checkArgument(!Strings.isNullOrEmpty(message), "message should be not empty");
-        return new Result<>(FAIL, message, null);
+        return new Result(FAIL, message, null);
     }
     
 }
