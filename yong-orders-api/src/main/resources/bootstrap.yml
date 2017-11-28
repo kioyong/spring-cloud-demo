@@ -24,9 +24,31 @@ yong:
 #    urls: /v2/api-docs
     urls:
       - /swagger.*
+      - /orders.*
       - /v2/api-docs
       - /hystrix.*
 
 feign:
   hystrix:
     enabled: true
+
+#zuul:
+#  routes:
+#    users:
+#      path: /orders/**
+#  #      serviceId: yong-orders
+#      url: localhost:8082
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+ribbon:
+  eureka:
+    enabled: false
+
+yong-orders:
+  ribbon:
+    listOfServers: 127.0.0.1:8082,127.0.0.1:8081
+

@@ -7,8 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * Created by yong.a.liang on 6/22/2017.
  */
@@ -23,7 +21,7 @@ public class BaseController<T> {
     }
 
     @PostMapping
-    Result<T> addOne(@RequestBody T instance) {
+    Result addOne(@RequestBody T instance) {
         try {
             return Result.success(service.addOne(instance));
         } catch (Exception err) {
@@ -33,7 +31,7 @@ public class BaseController<T> {
     }
 
     @DeleteMapping("/{id}")
-    Result<T> deactivate(@PathVariable String id) {
+    Result deactivate(@PathVariable String id) {
         try {
             service.delete(id);
             return Result.success();
@@ -44,7 +42,7 @@ public class BaseController<T> {
     }
 
     @GetMapping
-    public Result<List<T>> findAll() {
+    public Result findAll() {
         try {
             logger.debug("start findAll.");
             return Result.success(service.findAll());
@@ -55,7 +53,7 @@ public class BaseController<T> {
     }
 
     @GetMapping("/{id}")
-    public Result<T> getOne(@PathVariable String id) {
+    public Result getOne(@PathVariable String id) {
         try {
             return Result.success(service.getOne(id));
         } catch (Exception err) {
@@ -65,7 +63,7 @@ public class BaseController<T> {
     }
 
     @PutMapping
-    Result<T> updateOne(@RequestBody T instance) {
+    Result updateOne(@RequestBody T instance) {
         try {
             return Result.success(service.updateOne(instance));
         } catch (Exception err) {

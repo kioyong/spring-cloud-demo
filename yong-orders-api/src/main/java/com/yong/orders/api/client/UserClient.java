@@ -17,5 +17,5 @@ import java.util.List;
 public interface UserClient extends BaseClient<User>{
 
 	@GetMapping("/departmentGroup/{departmentGroupId}")
-	Result<List<User>> findUserByDepartmentGroup(@PathVariable String departmentGroupId);
+	Result findUserByDepartmentGroup(@PathVariable String departmentGroupId);
 }

@@ -18,4 +18,7 @@ public interface OrdersClient{
 
     @GetMapping
     Result findAll();
+
+    @GetMapping("/test")
+    String ribbonTest();
 }

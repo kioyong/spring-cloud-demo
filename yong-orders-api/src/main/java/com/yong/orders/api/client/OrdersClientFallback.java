@@ -17,6 +17,11 @@ public class OrdersClientFallback implements OrdersClient {
         return fallbcakReturn();
     }
 
+    @Override
+    public String ribbonTest() {
+        return "fallback";
+    }
+
     Result fallbcakReturn(){
         return Result.fail(ResultCode.FAIL,"error, Fallback Test");
     }

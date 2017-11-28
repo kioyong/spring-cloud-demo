@@ -53,4 +53,9 @@ public class OrdersController /*extends BaseController<OrdersInfo>*/{
 		 * **/
 		return Result.fail(ResultCode.FAIL,"handler error Test in controller layer");
 	}
+
+	@GetMapping("/test")
+	public String ribbonTest(){
+		return client.ribbonTest();
+	}
 }
