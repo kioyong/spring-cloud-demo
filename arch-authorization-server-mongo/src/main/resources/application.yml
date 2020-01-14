@@ -1,0 +1,25 @@
+server:
+  port: 8087
+  servlet:
+    context-path: '/api'
+
+spring:
+  application:
+    name: jwt-example
+  data:
+    mongodb:
+      uri: mongodb://test:test@localhost:27017auth?authSource=admin
+      database: auth
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8087/api/.well-known/jwks.json
+
+logging:
+  level:
+    web: DEBUG
+
+eureka:
+  client:
+    enabled: false
