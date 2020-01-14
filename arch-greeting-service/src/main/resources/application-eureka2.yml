@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    enabled: true
+
+spring:
+  cloud:
+    kubernetes:
+      enabled: false
+      discovery:
+        enabled: true
+    client:
+      hostname: ${eureka.instance.hostname}
+
+instance:
+  name: ${spring.application.name}-${random.value}

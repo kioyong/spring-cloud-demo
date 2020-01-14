@@ -1,0 +1,7 @@
+arch-greeting-service:
+  ribbon:
+    listOfServers: http://localhost:8081,http://localhost:8082
+
+eureka:
+  client:
+    enabled: false

@@ -1,0 +1,10 @@
+#for local load balance demo, override application.yml config
+server:
+  port: 8081
+
+eureka:
+  client:
+    enabled: false
+
+instance:
+  name: ${spring.application.name}-one

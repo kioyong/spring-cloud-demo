@@ -1,0 +1,15 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: arch-greeting-api
+  main:
+    lazy-initialization: true
+    allow-bean-definition-overriding: false
+
+logging:
+  level:
+    com.netflix.loadbalancer.LoadBalancerContext: DEBUG
