@@ -36,9 +36,6 @@ target/
 .springBeans
 
 ### IntelliJ IDEA ###
-!.idea/runConfigurations/
-.idea
-*.idea/
 *.iws
 *.iml
 *.ipr
@@ -56,3 +53,8 @@ dist/
 nbdist/
 .nb-gradle/
 config-repo/
+
+!.idea/runConfigurations/
+.idea/libraries
+.idea/*.xml
+.idea/*.iml

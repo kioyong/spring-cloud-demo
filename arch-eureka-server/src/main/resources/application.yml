@@ -5,13 +5,38 @@ eureka:
   instance:
     hostname: localhost
   client:
-    healthcheck:
-      enabled: true
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 spring:
   application:
     name: arch-eureka-server
+
+---
+spring:
+  profiles: standalone
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    registerWithEureka: false
+    fetchRegistry: false
+
+---
+spring:
+  profiles: peer1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
