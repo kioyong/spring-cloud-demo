@@ -1,0 +1,11 @@
+eureka:
+  client:
+    enabled: false
+
+spirng:
+  profiles:
+    active: local
+
+arch-greeting-service:
+  ribbon:
+    listOfServers: foo.com,bar.com

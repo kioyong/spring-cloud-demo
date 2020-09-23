@@ -1,4 +1,4 @@
-package org.springframework.cloud.netflix.archaius;
+package com.example.greeting;
 
 import com.netflix.config.DynamicProperty;
 import org.junit.jupiter.api.Test;
@@ -13,13 +13,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 
 @SpringBootTest(
-    classes = LazyLoadConfigurationTests.TestConfig.class,
-    properties = {"client.ribbon.listOfServers=foo.com,bar.com", "spring.main.lazy-initialization=true"})
+        classes = LazyLoadConfigurationTests.TestConfig.class
+//        properties = {"spring.profiles.active=localabc", "arch-greeting-service.ribbon.listOfServers=foo.com,bar.com", "spring.main.lazy-initialization=false"}
+        )
 public class LazyLoadConfigurationTests {
 
     @Test
     public void test() {
-        DynamicProperty instance = DynamicProperty.getInstance("client.ribbon.listOfServers");
+        DynamicProperty instance = DynamicProperty.getInstance("arch-greeting-service.ribbon.listOfServers");
         assertThat(instance.getString()).isEqualTo("foo.com,bar.com");
     }
 
