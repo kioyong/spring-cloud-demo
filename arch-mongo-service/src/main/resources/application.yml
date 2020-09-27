@@ -1,0 +1,13 @@
+server:
+  port: 8075
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
+      database: test
+
+logging:
+  level:
+    org.mongodb.driver.protocol.command: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG

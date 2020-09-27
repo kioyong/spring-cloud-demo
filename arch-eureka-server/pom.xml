@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.eureka.server</groupId>
+    <groupId>com.arch.eureka.server</groupId>
     <artifactId>arch-eureka-server</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -12,7 +12,7 @@
     <description>Demo project for Eureka Server</description>
 
     <parent>
-        <groupId>com.example.parent</groupId>
+        <groupId>com.arch.parent</groupId>
         <artifactId>arch-starter-parent</artifactId>
         <version>1.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
