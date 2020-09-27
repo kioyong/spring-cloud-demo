@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="arch-eureka-server-peer-awareness2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="eureka-peer-awareness">
     <module name="arch-eureka-server" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eureka.server.EurekaServerApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.arch.eureka.server.EurekaServerApplication" />
     <option name="ACTIVE_PROFILES" value="peer2" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">

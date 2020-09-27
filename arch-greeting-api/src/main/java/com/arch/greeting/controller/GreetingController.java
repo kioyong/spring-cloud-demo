@@ -1,6 +1,6 @@
-package com.example.greeting.controller;
+package com.arch.greeting.controller;
 
-import com.example.greeting.clients.GreetingClient;
+import com.arch.greeting.clients.GreetingClient;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

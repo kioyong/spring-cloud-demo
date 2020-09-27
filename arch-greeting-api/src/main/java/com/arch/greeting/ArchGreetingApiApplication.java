@@ -1,4 +1,4 @@
-package com.example.greeting;
+package com.arch.greeting;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.SpringApplication;

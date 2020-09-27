@@ -1,4 +1,4 @@
-package com.example.greeting;
+package com.arch.greeting;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

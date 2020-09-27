@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="arch-greeting-api-eureka" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="eureka">
     <module name="arch-greeting-api" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.greeting.ArchGreetingApiApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.arch.greeting.ArchGreetingApiApplication" />
     <option name="ACTIVE_PROFILES" value="eureka" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
