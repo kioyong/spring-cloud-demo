@@ -6,6 +6,8 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/test
       database: test
+  main:
+    lazy-initialization: true
 
 logging:
   level:

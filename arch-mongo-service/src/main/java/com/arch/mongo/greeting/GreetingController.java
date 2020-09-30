@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.arch.mongo.greeting.GreetingRepository.NORMAL_TYPE;
 import static com.arch.mongo.greeting.GreetingRepository.VIP_TYPE;
@@ -21,6 +22,13 @@ public class GreetingController {
     @GetMapping
     public List<Greeting> findAll() {
         return repository.findAll();
+    }
+
+    @GetMapping("/names")
+    public List<String> findAllNames() {
+        return repository.getAllName()
+                .stream().map(GreetingRepository.NameOnly::getName)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/totalPoint/vip")

@@ -58,3 +58,5 @@ config-repo/
 .idea/libraries
 .idea/*.xml
 .idea/*.iml
+
+*/.idea/
