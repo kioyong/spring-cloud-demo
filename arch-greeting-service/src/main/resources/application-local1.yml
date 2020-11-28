@@ -8,3 +8,10 @@ eureka:
 
 instance:
   name: ${spring.application.name}-one
+
+logging:
+  level:
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+spring:
+  jackson:
+    date-format: "yyyy-MM-dd't'HH:mm:ss.SSSZ"
