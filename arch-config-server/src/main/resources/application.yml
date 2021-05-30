@@ -1,0 +1,31 @@
+server:
+  port: 8888
+
+spring:
+  security:
+    user:
+      name: configUser
+      password: c0nfigUser
+  cloud:
+    config:
+      server:
+        git:
+          uri: YOUR_GIT_CONFIG_URI
+          username: YOUR_GIT_USERNAME
+          password: YOUR_GIT_PASSWORD
+          skip-ssl-validation: false
+          timeout: 5
+          force-pull: true
+          delete-untracked-branches: true
+          refresh-rate: 300  # 从git服务器获取配置频率， 300秒一次
+
+        encrypt:
+          enabled: false # 客户端解密
+
+## 服务端解密启用
+#encrypt:
+#  keyStore:
+#    location: 'classpath:/keystore/server.jks'
+#    alias: mytestkey
+#    password: changeme
+#    secret: changeme

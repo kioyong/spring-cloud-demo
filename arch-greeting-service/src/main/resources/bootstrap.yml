@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+      username: configUser
+      password: c0nfigUser
+
+encrypt:
+  keyStore:
+    location: 'classpath:/keystore/server.jks'
+    alias: mytestkey
+    password: changeme
+    secret: changeme

@@ -1,13 +1,13 @@
 package com.arch.kafka;
 
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
 
 
 @RestController
@@ -16,6 +16,9 @@ public class GreetingController {
 
     @Value("${instance.name:}")
     private String applicationName;
+
+    @Value("${author.password:}")
+    private String password;
 
     private final AtomicLong atomicLong = new AtomicLong();
 
@@ -31,12 +34,17 @@ public class GreetingController {
 
     @GetMapping("/hostname")
     public String hostname() {
-        return System.getenv("HOSTNAME");
+        return "host name is " + System.getenv("HOSTNAME");
     }
 
     @GetMapping("/greeting")
-    public Greeting greeting(){
-        return new Greeting("123",new Date(),new Date());
+    public Greeting greeting() {
+        return new Greeting("123", new Date(), new Date());
+    }
+
+    @GetMapping("/SecretConfig")
+    public String getSecretConfig() {
+        return "secret password is " + password;
     }
 
 }

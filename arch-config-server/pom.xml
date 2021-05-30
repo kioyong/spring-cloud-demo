@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yong.config.</groupId>
+    <artifactId>arch-config-server</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>arch-config-server</name>
+    <description>Demo project for Spring Boot</description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.arch.parent</groupId>
-    <artifactId>arch-starter-parent</artifactId>
-    <version>1.0.0</version>
-    <name>arch-starter-parent</name>
-    <description>Starter Parent for Micro Service Example Parent</description>
-    <packaging>pom</packaging>
 
     <properties>
         <java.version>16</java.version>
@@ -22,37 +25,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -65,7 +46,14 @@
         </dependencies>
     </dependencyManagement>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -84,4 +72,5 @@
             </snapshots>
         </repository>
     </repositories>
+
 </project>

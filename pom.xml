@@ -12,11 +12,12 @@
     <modules>
         <module>arch-starter-parent</module>
         <module>arch-greeting-service</module>
-        <module>arch-greeting-api</module>
-        <module>arch-eureka-server</module>
-        <module>arch-mongo-service</module>
-        <module>arch-kafka-service</module>
-<!--        <module>arch-oauth2-server-mongo</module>-->
+        <module>arch-config-server</module>
+        <!--        <module>arch-greeting-api</module>-->
+        <!--        <module>arch-eureka-server</module>-->
+        <!--        <module>arch-mongo-service</module>-->
+        <!--        <module>arch-kafka-service</module>-->
+        <!--        <module>arch-oauth2-server-mongo</module>-->
     </modules>
 
     <properties>

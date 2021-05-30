@@ -2,7 +2,6 @@ package com.arch.kafka;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,9 +9,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class Greeting {
 
-	private String id;
-	private Date date;
+    private String id;
+    private Date date;
 
 
-	private Date createdDate;
+    private Date createdDate;
 }

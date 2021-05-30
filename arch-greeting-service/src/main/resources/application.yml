@@ -6,14 +6,6 @@ server:
 spring:
   application:
     name: arch-greeting-service
-  main:
-    lazy-initialization: true
-  banner:
-    location: banner.txt
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-#https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints-exposing-endpoints
+  profiles:
+    active: dev
