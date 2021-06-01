@@ -22,11 +22,11 @@
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.3-SNAPSHOT</spring-cloud.version>
 <!--        <spring-native.version>0.10.0-SNAPSHOT</spring-native.version>-->
-        <DOCKER_USERNAME>changeit</DOCKER_USERNAME>
-        <DOCKER_PASSWORD>changeit</DOCKER_PASSWORD>
-        <DOCKER_URL>changeit</DOCKER_URL>
-        <DOCKER_EMAIL>changeit</DOCKER_EMAIL>
-        <DOCKER_WORKSPACE>changeit</DOCKER_WORKSPACE>
+        <DOCKER_USERNAME>user</DOCKER_USERNAME>
+        <DOCKER_PASSWORD>secret</DOCKER_PASSWORD>
+        <DOCKER_URL>https://docker.example.com/v1/</DOCKER_URL>
+        <DOCKER_EMAIL>user@example.com</DOCKER_EMAIL>
+        <DOCKER_WORKSPACE>workspace</DOCKER_WORKSPACE>
     </properties>
 
     <dependencies>

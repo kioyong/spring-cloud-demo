@@ -1,5 +1,15 @@
-这个项目是基于Spring Boot、Spring Cloud的微服务架构用例，为开发者提供便捷的用例参考和学习。
+Spring Cloud 微服务架构用例
 
-# Features Example
-  - Client Side Load Balancer: Ribbon
+
+# Config Server
+
+arch-config-server
+
+- 服务端解密
+- 客户端解密
+- Security Access
+- 镜像构建
+- 部署到Docker
+- 部署到k8s
+
 

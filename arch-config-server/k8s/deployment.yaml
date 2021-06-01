@@ -4,7 +4,7 @@ metadata:
   name: arch-config-server
   labels:
     app: arch-config-server
-  namespace: kioyong
+  namespace: arch-dev
 spec:
   replicas: 1
   selector:
@@ -25,15 +25,15 @@ spec:
           - name: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
             valueFrom:
               configMapKeyRef:
-                name: arch-config-server-configmap
+                name: arch-config-server-config
                 key: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
           - name: SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME
             valueFrom:
               configMapKeyRef:
-                name: arch-config-server-configmap
+                name: arch-config-server-config
                 key: SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME
           - name: SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD
             valueFrom:
               configMapKeyRef:
-                name: arch-config-server-configmap
+                name: arch-config-server-config
                 key: SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD

@@ -10,9 +10,9 @@ spring:
     config:
       server:
         git:
-          uri: YOUR_GIT_CONFIG_URI
-          username: YOUR_GIT_USERNAME
-          password: YOUR_GIT_PASSWORD
+          uri: https://github.com/user/example
+          username: user@example.com
+          password: userpassword
           skip-ssl-validation: false
           timeout: 5
           force-pull: true
