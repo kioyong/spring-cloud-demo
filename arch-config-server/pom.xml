@@ -19,8 +19,14 @@
     </parent>
 
     <properties>
-        <java.version>16</java.version>
+        <java.version>11</java.version>
         <spring-cloud.version>2020.0.3-SNAPSHOT</spring-cloud.version>
+<!--        <spring-native.version>0.10.0-SNAPSHOT</spring-native.version>-->
+        <DOCKER_USERNAME>changeit</DOCKER_USERNAME>
+        <DOCKER_PASSWORD>changeit</DOCKER_PASSWORD>
+        <DOCKER_URL>changeit</DOCKER_URL>
+        <DOCKER_EMAIL>changeit</DOCKER_EMAIL>
+        <DOCKER_WORKSPACE>changeit</DOCKER_WORKSPACE>
     </properties>
 
     <dependencies>
@@ -32,6 +38,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.experimental</groupId>-->
+<!--            <artifactId>spring-native</artifactId>-->
+<!--            <version>${spring-native.version}</version>-->
+<!--        </dependency>-->
 
     </dependencies>
     <dependencyManagement>
@@ -45,13 +56,53 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>${DOCKER_URL}/${DOCKER_WORKSPACE}/${project.artifactId}</name>
+                        <publish>true</publish>
+                    </image>
+                    <docker>
+                        <publishRegistry>
+                            <username>${DOCKER_USERNAME}</username>
+                            <password>${DOCKER_PASSWORD}</password>
+                            <url>${DOCKER_URL}</url>
+                            <email>${DOCKER_EMAIL}</email>
+                        </publishRegistry>
+                    </docker>
+                </configuration>
+<!--                <configuration>-->
+<!--                    <image>-->
+<!--                        <builder>paketobuildpacks/builder:tiny</builder>-->
+<!--                        <env>-->
+<!--                            <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>-->
+<!--                        </env>-->
+<!--                    </image>-->
+<!--                </configuration>-->
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.experimental</groupId>-->
+<!--                <artifactId>spring-aot-maven-plugin</artifactId>-->
+<!--                <version>${spring-native.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>test-generate</id>-->
+<!--                        <goals>-->
+<!--                            <goal>test-generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>generate</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
     <repositories>
@@ -72,5 +123,13 @@
             </snapshots>
         </repository>
     </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+        </pluginRepository>
+    </pluginRepositories>
+
 
 </project>

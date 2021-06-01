@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arch-config-server
+  labels:
+    app: arch-config-server
+  namespace: kioyong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arch-config-server
+  template:
+    metadata:
+      labels:
+        app: arch-config-server
+    spec:
+      containers:
+      - name: arch-config-server
+        image: arch-config-server:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8888
+        env:
+          - name: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
+            valueFrom:
+              configMapKeyRef:
+                name: arch-config-server-configmap
+                key: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
+          - name: SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: arch-config-server-configmap
+                key: SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME
+          - name: SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: arch-config-server-configmap
+                key: SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD

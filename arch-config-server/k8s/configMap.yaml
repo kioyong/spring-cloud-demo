@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: arch-config-server-configmap
+  namespace: kioyong
+data:
+  SPRING_CLOUD_CONFIG_SERVER_GIT_URI: "YOUR_GIT_CONFIG_URI"
+  SPRING_CLOUD_CONFIG_SERVER_GIT_USERNAME: "YOUR_GIT_USERNAME"
+  SPRING_CLOUD_CONFIG_SERVER_GIT_PASSWORD: "YOUR_GIT_PASSWORD"

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: arch-config-server-service
+  namespace: kioyong
+spec:
+  type: NodePort
+  ports:
+    - port: 8888
+      targetPort: 8888
+      nodePort: 30088
+  sessionAffinity: None
+  selector:
+    app: arch-config-server
+status:
+  loadBalancer: {}
