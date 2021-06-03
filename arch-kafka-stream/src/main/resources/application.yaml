@@ -1,0 +1,54 @@
+spring:
+  cloud:
+    ########################################### spring-cloud-stream 配置
+    function:
+      definition: 'touppercase;greeting'
+    stream:
+      bindings:
+        greeting-in-0:
+          destination: 'topic2'
+        touppercase-in-0:
+          destination: 'topic1'
+          group: mygroup1
+        toUpperCase-out-0:
+          destination: 'topic2'
+        newgreeting-out-0:
+          destination: 'topic2'
+      default:
+        group: mygroup1
+
+      ########################################### spring-cloud-stream-binder-kafka config
+      kafka:
+        binder:
+          brokers: 'localhost'    # a list of brokers to which the kafka binder connects, default localhost, host1,host2:port2
+          defaultBrokerPort: '9092'
+          #          configuration:
+          #          headers:
+          min-partition-count: 1
+          required-acks: 1
+          health-timeout: 60
+#          transaction:
+#            transaction-id-prefix:
+#            producer:
+#          auto-add-partitions: false
+#          auto-create-topics: true
+#          consumer-properties:
+#          producer-properties:
+#          certificate-store-directory: '' # if keystore as classpath URL (classpath:...) then save temp keystore directory
+
+#  kafka:
+#    bindings:
+#      greeting-in-0:
+#        consumer:
+#          configuration:
+#            value:
+#              deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#    bootstrap-servers: localhost:9092
+
+
+
+server:
+  port: 8084
+
+
+

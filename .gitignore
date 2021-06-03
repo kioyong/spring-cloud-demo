@@ -60,3 +60,5 @@ config-repo/
 .idea/*.iml
 
 */.idea/
+*/.idea/.*
+.idea/

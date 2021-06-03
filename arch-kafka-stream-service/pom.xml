@@ -9,24 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.arch.kafka</groupId>
-    <artifactId>arch-kafka-producer-service</artifactId>
+    <artifactId>arch-kafka-service</artifactId>
     <version>1.0.0</version>
-    <name>arch-kafka-producer-service</name>
+    <name>arch-kafka-service</name>
     <description>Demo project for Spring Boot kafka</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-binder-kafka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>de.flapdoodle.embed</groupId>
-            <artifactId>de.flapdoodle.embed.mongo</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>
