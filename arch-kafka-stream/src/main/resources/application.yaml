@@ -2,23 +2,60 @@ spring:
   cloud:
     ########################################### spring-cloud-stream 配置
     function:
-      definition: 'touppercase;greeting'
+      definition: 'touppercase;greeting;echo;newgreeting'
+    #      bindings:
+    #        greeting-in-0: input
     stream:
       bindings:
         greeting-in-0:
           destination: 'topic2'
+          group: mygroup1
+          consumer:
+            max-attempts: 1
+        echo-in-0:
+          destination: 'topic2'
+          group: mygroup2
+          consumer:
+            max-attempts: 1
         touppercase-in-0:
           destination: 'topic1'
           group: mygroup1
+
         toUpperCase-out-0:
           destination: 'topic2'
+          producer:
+            auto-startup: true
         newgreeting-out-0:
           destination: 'topic2'
       default:
-        group: mygroup1
+        group: defaultGroup
+        destination: defaultTopic
+        content-type: application/json
 
+      ## 声明多个binder，kafka or rabbit
+      #      binders:
+      #        kafka1:
+      #          type: kafka
+      #          environment:
+      #            spring:
+      #              kafka:
+      #                host: 10.0.13.4
+      #          defaultCandidate: true
+      #        kafka2:
+      #          type: kafka
+      #          environment:
+      #            spring:
+      #              kafka:
+      #                host: localhost
       ########################################### spring-cloud-stream-binder-kafka config
       kafka:
+        bindings:
+          greeting-in-0:
+            consumer:
+              enableDlq: true
+          echo-in-0:
+            consumer:
+              start-offset: latest
         binder:
           brokers: 'localhost'    # a list of brokers to which the kafka binder connects, default localhost, host1,host2:port2
           defaultBrokerPort: '9092'
@@ -27,6 +64,8 @@ spring:
           min-partition-count: 1
           required-acks: 1
           health-timeout: 60
+#      instance-count: 2  ## kafka 不需要配置这个属性
+#      instance-index: 0  ## kafka 不需要配置这个属性
 #          transaction:
 #            transaction-id-prefix:
 #            producer:
@@ -36,19 +75,23 @@ spring:
 #          producer-properties:
 #          certificate-store-directory: '' # if keystore as classpath URL (classpath:...) then save temp keystore directory
 
-#  kafka:
-#    bindings:
-#      greeting-in-0:
-#        consumer:
-#          configuration:
-#            value:
-#              deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-#    bootstrap-servers: localhost:9092
-
 
 
 server:
   port: 8084
 
-
-
+logging:
+  level:
+    org:
+      apache:
+        kafka:
+          clients:
+            producer: error
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'health,info,env,bindings'
+  endpoint:
+    health:
+      show-details: always
