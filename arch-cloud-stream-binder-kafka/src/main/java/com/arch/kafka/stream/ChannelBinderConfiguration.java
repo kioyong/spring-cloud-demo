@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.Message;
 
 @Log4j2
 @Configuration
@@ -25,16 +26,16 @@ public class ChannelBinderConfiguration {
                 log.error("topic2 greeting: error intentional");
                 throw new RuntimeException("intentional");
             }
-            log.info("topic2: {}", input);
+            log.info("topic2 greeting: {}", input);
         };
     }
 
     /**
-     * solution 1
+     * solution 2
      * **/
     @Bean
-    public Consumer<Greeting> echo() {
-        return input -> log.info("topic2 echo: {}", input);
+    public Consumer<Message<Greeting>> echo() {
+        return input -> log.info("topic2 echo: {}", input.getPayload());
     }
 
     /**

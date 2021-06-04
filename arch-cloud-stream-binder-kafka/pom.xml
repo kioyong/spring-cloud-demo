@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.arch</groupId>
-    <artifactId>arch-kafka-stream</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>arch-kafka-stream</name>
-    <description>Demo project for Spring Boot kafka stream</description>
+    <artifactId>arch-cloud-stream-binder-kafka</artifactId>
+    <version>1.0.0</version>
+    <name>arch-cloud-stream-binder-kafka</name>
+    <description>Demo project for Spring Cloud Stream Binder Kafka</description>
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>

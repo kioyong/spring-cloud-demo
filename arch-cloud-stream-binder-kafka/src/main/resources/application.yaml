@@ -53,6 +53,7 @@ spring:
           greeting-in-0:
             consumer:
               enableDlq: true
+
           echo-in-0:
             consumer:
               start-offset: latest
@@ -87,6 +88,8 @@ logging:
         kafka:
           clients:
             producer: error
+            admin: error
+            consumer: error
 management:
   endpoints:
     web:
