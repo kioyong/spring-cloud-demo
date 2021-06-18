@@ -1,0 +1,28 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ConfigServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="arch-config-server" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.arch.config.ConfigServer" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <additionalParameters>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.cloud.config.server.git.uri" />
+        <option name="value" value="https://gitee.com/kioyong/ly-config" />
+      </param>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.cloud.config.server.git.username" />
+        <option name="value" value="517219382@qq.com" />
+      </param>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.cloud.config.server.git.password" />
+        <option name="value" value="klljkljli@34" />
+      </param>
+    </additionalParameters>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

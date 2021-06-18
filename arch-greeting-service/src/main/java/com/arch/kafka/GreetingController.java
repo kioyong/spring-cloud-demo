@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+@RefreshScope
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -19,6 +21,9 @@ public class GreetingController {
 
     @Value("${author.password:}")
     private String password;
+
+    @Value("${author.name:}")
+    private String name;
 
     private final AtomicLong atomicLong = new AtomicLong();
 
@@ -44,7 +49,7 @@ public class GreetingController {
 
     @GetMapping("/SecretConfig")
     public String getSecretConfig() {
-        return "secret password is " + password;
+        return "name is " + name + " secret password is " + password;
     }
 
 }

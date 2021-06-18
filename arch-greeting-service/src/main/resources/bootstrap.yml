@@ -4,7 +4,12 @@ spring:
       uri: http://localhost:8888
       username: configUser
       password: c0nfigUser
-
+    bus:
+      destination: springCloudBus
+      trace:
+        enabled: true
+  profiles:
+    active: dev
 encrypt:
   keyStore:
     location: 'classpath:/keystore/server.jks'

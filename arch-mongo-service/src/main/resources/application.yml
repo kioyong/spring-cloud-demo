@@ -1,11 +1,18 @@
 server:
   port: 8075
 
+
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/test
-      database: test
+      uri: 'mongodb://m220student:m220password@cluster0-shard-00-00.ewljj.mongodb.net:27017/blog?ssl=true&replicaSet=atlas-12xdoh-shard-0&authSource=admin'
+#      host: cluster0-shard-00-00.ewljj.mongodb.net
+#      port: 27017
+#      username: m220student
+#      password: m220password
+#      replica-set-name: atlas-12xdoh-shard-0
+#      authentication-database: admin
+#      database: mydb1
   main:
     lazy-initialization: true
 

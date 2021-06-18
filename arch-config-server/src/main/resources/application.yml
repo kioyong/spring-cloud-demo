@@ -17,7 +17,7 @@ spring:
           timeout: 5
           force-pull: true
           delete-untracked-branches: true
-          refresh-rate: 300  # 从git服务器获取配置频率， 300秒一次
+          refresh-rate: 10  # 从git服务器获取配置频率， 300秒一次
 
         encrypt:
           enabled: false # 客户端解密

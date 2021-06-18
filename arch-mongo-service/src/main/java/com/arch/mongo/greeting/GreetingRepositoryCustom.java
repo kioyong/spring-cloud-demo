@@ -1,6 +1,11 @@
 package com.arch.mongo.greeting;
 
+import java.util.List;
+
 public interface GreetingRepositoryCustom {
 
-    Double getVIPTypeTotalPoint();
+
+  List<Greeting> findAllByDistinctType();
+
+  Double getVIPTypeTotalPoint();
 }

@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: arch-greeting-service
-
-  profiles:
-    active: dev
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 10.0.13.4
