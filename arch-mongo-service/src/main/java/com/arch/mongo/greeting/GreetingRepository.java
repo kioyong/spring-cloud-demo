@@ -26,4 +26,5 @@ public interface GreetingRepository extends MongoRepository<Greeting, String>, G
         String getName();
     }
 
+
 }
