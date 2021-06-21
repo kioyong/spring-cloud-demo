@@ -24,9 +24,9 @@ jobs:
     - name: Build with Maven
       shell: bash
       env:
-        DDOCKER_USERNAME: ${{ secrets.DDOCKER_USERNAME }}
-        DDOCKER_PASSWORD: ${{ secrets.DDOCKER_PASSWORD }}
-        DDOCKER_URL: ${{ secrets.DDOCKER_URL }}
-        DDOCKER_EMAIL: ${{ secrets.DDOCKER_EMAIL }}
-        DDOCKER_WORKSPACE: ${{ secrets.DDOCKER_WORKSPACE }}
-      run: mvn spring-boot:build-image -DDOCKER_USERNAME=${DDOCKER_USERNAME} -DDOCKER_PASSWORD="$DDOCKER_PASSWORD" -DDOCKER_URL="$DDOCKER_URL" -DDOCKER_EMAIL="$DDOCKER_EMAIL" -DDOCKER_WORKSPACE="$DDOCKER_WORKSPACE" --file arch-config-server/pom.xml
+        DOCKER_USERNAME: ${{ secrets.DDOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DDOCKER_PASSWORD }}
+        DOCKER_URL: ${{ secrets.DDOCKER_URL }}
+        DOCKER_EMAIL: ${{ secrets.DDOCKER_EMAIL }}
+        DOCKER_WORKSPACE: ${{ secrets.DDOCKER_WORKSPACE }}
+      run: mvn spring-boot:build-image --file arch-config-server/pom.xml
