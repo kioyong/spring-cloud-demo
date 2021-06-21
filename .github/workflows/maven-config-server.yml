@@ -31,9 +31,9 @@ jobs:
         run: |
           mvn spring-boot:build-image -DDOCKER_USERNAME="$DOCKER_USERNAME" -DDOCKER_PASSWORD="$DOCKER_PASSWORD" -DDOCKER_URL="$DOCKER_URL" -DDOCKER_EMAIL="$DOCKER_EMAIL" -DDOCKER_WORKSPACE="$DOCKER_WORKSPACE" --file arch-config-server/pom.xml
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_URL: ccr.ccs.tencentyun.com
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_URL: docker.pkg.github.com
           DOCKER_EMAIL: 517219382@qq.com
-          DOCKER_WORKSPACE: kioyong
+          DOCKER_WORKSPACE: ${{ github.repository }}
           
