@@ -33,7 +33,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_URL: ${{ secrets.DOCKER_URL }}
-          DOCKER_EMAIL: ${{ secrets.DOCKER_EMAIL }}
-          DOCKER_WORKSPACE: ${{ secrets.DOCKER_WORKSPACE }}
+          DOCKER_URL: ccr.ccs.tencentyun.com
+          DOCKER_EMAIL: 517219382@qq.com
+          DOCKER_WORKSPACE: kioyong
           
