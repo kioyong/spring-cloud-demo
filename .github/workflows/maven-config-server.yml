@@ -22,4 +22,4 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: mvn -B package --file arch-config-server/pom.xml
+      run: mvn spring-boot:build-image -DDOCKER_USERNAME=${DDOCKER_USERNAME} -DDOCKER_PASSWORD=${DDOCKER_PASSWORD} -DDOCKER_URL=${DDOCKER_URL} -DDOCKER_EMAIL=${DDOCKER_EMAIL} -DDOCKER_WORKSPACE=${DDOCKER_WORKSPACE} --file arch-config-server/pom.xml
