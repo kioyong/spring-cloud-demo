@@ -20,8 +20,9 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2020.0.3-SNAPSHOT</spring-cloud.version>
-<!--        <spring-native.version>0.10.0-SNAPSHOT</spring-native.version>-->
+        <repackage.classifier/>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-native.version>0.10.0</spring-native.version>
         <DOCKER_USERNAME>user</DOCKER_USERNAME>
         <DOCKER_PASSWORD>secret</DOCKER_PASSWORD>
         <DOCKER_URL>https://docker.example.com/v1/</DOCKER_URL>
@@ -38,11 +39,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.experimental</groupId>-->
-<!--            <artifactId>spring-native</artifactId>-->
-<!--            <version>${spring-native.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.experimental</groupId>
+            <artifactId>spring-native</artifactId>
+            <version>${spring-native.version}</version>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>
@@ -62,9 +63,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <classifier>${repackage.classifier}</classifier>
                     <image>
                         <name>${DOCKER_URL}/${DOCKER_WORKSPACE}/${project.artifactId}</name>
                         <publish>true</publish>
+                        <builder>paketobuildpacks/builder:tiny</builder>
+                        <env>
+                            <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+                        </env>
                     </image>
                     <docker>
                         <publishRegistry>
@@ -75,34 +81,26 @@
                         </publishRegistry>
                     </docker>
                 </configuration>
-<!--                <configuration>-->
-<!--                    <image>-->
-<!--                        <builder>paketobuildpacks/builder:tiny</builder>-->
-<!--                        <env>-->
-<!--                            <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>-->
-<!--                        </env>-->
-<!--                    </image>-->
-<!--                </configuration>-->
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.experimental</groupId>-->
-<!--                <artifactId>spring-aot-maven-plugin</artifactId>-->
-<!--                <version>${spring-native.version}</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>test-generate</id>-->
-<!--                        <goals>-->
-<!--                            <goal>test-generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>generate</id>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.springframework.experimental</groupId>
+                <artifactId>spring-aot-maven-plugin</artifactId>
+                <version>${spring-native.version}</version>
+                <executions>
+                    <execution>
+                        <id>test-generate</id>
+                        <goals>
+                            <goal>test-generate</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <repositories>
