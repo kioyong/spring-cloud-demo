@@ -15,18 +15,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-    - name: Build with Maven
-      shell: bash
-      env:
-        DOCKER_USERNAME: ${{ secrets.DDOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DDOCKER_PASSWORD }}
-        DOCKER_URL: ${{ secrets.DDOCKER_URL }}
-        DOCKER_EMAIL: ${{ secrets.DDOCKER_EMAIL }}
-        DOCKER_WORKSPACE: ${{ secrets.DDOCKER_WORKSPACE }}
-      run: mvn spring-boot:build-image --file arch-config-server/pom.xml
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build with Maven
+        run: mvn spring-boot:build-image --file arch-config-server/pom.xml
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_URL: ${{ secrets.DOCKER_URL }}
+          DOCKER_EMAIL: ${{ secrets.DOCKER_EMAIL }}
+          DOCKER_WORKSPACE: ${{ secrets.DOCKER_WORKSPACE }}
+          
