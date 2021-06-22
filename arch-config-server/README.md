@@ -1,3 +1,14 @@
+# Config Server Demo
+
+
+ - 服务端解密 ✔️
+ - 客户端解密 ✔️
+ - KeyStore 配置 ✔️
+ - 构建镜像 ✔️
+ - 发布镜像 ✔️
+ - 部署到k8s ✔️
+ - 构建Spring native 镜像❌
+
 ## 创建 Keystore
 
 创建自己的keystore 并替换掉 keystore/server.jks
